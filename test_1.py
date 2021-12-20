@@ -1,4 +1,5 @@
 from connectmp.mp import Process
+from connectmp.connection import Connection
 import time
 
 
@@ -16,8 +17,9 @@ def track_i(connection):
 
 
 if __name__ == '__main__':
-    p1 = Process(target=do_something, connection=True)
-    p2 = Process(target=track_i, args=(p1.connection,))
+    c = Connection()
+    p1 = Process(target=do_something, args=(c,))
+    p2 = Process(target=track_i, args=(c,))
 
     p1.start()
     p2.start()

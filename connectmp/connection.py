@@ -1,12 +1,17 @@
+import uuid
 from .settings import DATABASE
 
 __all__ = ['Connection']
 
 
 class Connection:
-    def __init__(self, process_id):
+    def __init__(self, process_id: str = None):
         self.process_id = process_id
         self.database = DATABASE
+        if not self.process_id:
+            # Class is being used seperately outside connectmp.
+            self.process_id = str(uuid.uuid4())
+            self.database.createObj(self.process_id)
 
     def __getattr__(self, item):
         if item == 'data':

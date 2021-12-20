@@ -16,7 +16,7 @@ class Process(MProcess):
         self.process_id = str(uuid.uuid4())
         if connection:
             self.connection = Connection(self.process_id)
-        DATABASE.createObj(self.process_id)
+            DATABASE.createObj(self.process_id)
         if connection and target:
             if accepts_connection_kwarg(target):
                 kwargs[conn_var] = self.connection
