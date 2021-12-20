@@ -9,6 +9,7 @@ __all__ = ['ProcessDatabase']
 class ProcessDatabase:
     def __init__(self):
         self.file_path = os.path.join(os.getcwd(), 'database.sqlite3')
+
         if os.path.exists(self.file_path):
             os.remove(self.file_path)
 
@@ -19,6 +20,7 @@ class ProcessDatabase:
 
         self.cursor = self.connection.cursor()
         self.schema = {'process_id': 0, 'data': 1}
+        self.initialize_db()
 
     def initialize_db(self):
         try:
