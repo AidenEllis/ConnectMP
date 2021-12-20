@@ -1,5 +1,6 @@
 import os
 import sqlite3
+from pathlib import Path
 import _pickle as cpickle
 from pickle import HIGHEST_PROTOCOL
 
@@ -8,7 +9,7 @@ __all__ = ['ProcessDatabase']
 
 class ProcessDatabase:
     def __init__(self):
-        self.file_path = os.path.join(os.getcwd(), 'database.sqlite3')
+        self.file_path = os.path.join(Path(__file__).resolve().parent, 'database.sqlite3')
         if os.path.exists(self.file_path):
             os.remove(self.file_path)
         self.connection = sqlite3.connect(self.file_path)
