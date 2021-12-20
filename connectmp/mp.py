@@ -14,7 +14,8 @@ class Process(MProcess):
             args = ()
 
         self.process_id = str(uuid.uuid4())
-        self.connection = Connection(self.process_id)
+        if connection:
+            self.connection = Connection(self.process_id)
         DATABASE.createObj(self.process_id)
         if connection and target:
             if accepts_connection_kwarg(target):

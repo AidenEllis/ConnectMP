@@ -18,17 +18,16 @@ class ProcessDatabase:
         self.initialize_db()
 
     def initialize_db(self):
-        try:
-            self.cursor.execute("""
-                CREATE TABLE ProcessDatas (
-                    process_id TEXT,
-                    data BLOB
-                )""")
+        with self.connection:
+            try:
+                self.cursor.execute("""
+                    CREATE TABLE ProcessDatas (
+                        process_id TEXT,
+                        data BLOB
+                    )""")
 
-            self.connection.commit()
-
-        except sqlite3.OperationalError:
-            pass
+            except sqlite3.OperationalError:
+                pass
 
     def createObj(self, process_id: str):
         with self.connection:
