@@ -9,15 +9,9 @@ __all__ = ['ProcessDatabase']
 class ProcessDatabase:
     def __init__(self):
         self.file_path = os.path.join(os.getcwd(), 'database.sqlite3')
-
         if os.path.exists(self.file_path):
             os.remove(self.file_path)
-
-        try:
-            self.connection = sqlite3.connect("file::memory:?cache=shared")
-        except sqlite3.OperationalError:
-            self.connection = sqlite3.connect(self.file_path)
-
+        self.connection = sqlite3.connect(self.file_path)
         self.cursor = self.connection.cursor()
         self.schema = {'process_id': 0, 'data': 1}
         self.initialize_db()
@@ -63,4 +57,6 @@ class ProcessDatabase:
 
             if process_data_exists:
                 pickled_data = process_data_exists[0][self.schema['data']]
-                return cpickle.loads(pickled_data)
+                if pickled_data:
+                    return cpickle.loads(pickled_data)
+                return ''
