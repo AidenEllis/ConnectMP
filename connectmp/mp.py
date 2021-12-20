@@ -14,12 +14,9 @@ class Process(MProcess):
             args = ()
 
         self.process_id = str(uuid.uuid4())
+        self.connection = Connection(self.process_id)
         DATABASE.createObj(self.process_id)
         if connection and target:
             if accepts_connection_kwarg(target):
                 kwargs[conn_var] = self.connection
         MProcess.__init__(self, target=target, args=args, kwargs=kwargs)
-
-    @property
-    def connection(self) -> Connection:
-        return Connection(self.process_id)

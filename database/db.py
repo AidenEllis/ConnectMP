@@ -35,16 +35,16 @@ class ProcessDatabase:
                 'process_id': process_id,
                 'data': ''
             }
-            process_data_exists = self.cursor.execute("SELECT * FROM ProcessDatas WHERE process_id=:process_id",
-                                                      {'process_id': process_id}).fetchall()
+            process_data_exists = list(self.cursor.execute("SELECT * FROM ProcessDatas WHERE process_id=:process_id",
+                                                      {'process_id': process_id}).fetchall())
 
             if not process_data_exists:
                 self.cursor.execute("INSERT INTO ProcessDatas VALUES (:process_id, :data)", values)
 
     def updateData(self, process_id: str, data):
         with self.connection:
-            process_data_exists = self.cursor.execute("SELECT * FROM ProcessDatas WHERE process_id=:process_id",
-                                                      {'process_id': process_id}).fetchall()
+            process_data_exists = list(self.cursor.execute("SELECT * FROM ProcessDatas WHERE process_id=:process_id",
+                                                      {'process_id': process_id}).fetchall())
             if process_data_exists:
                 pickled_data = cpickle.dumps(data, HIGHEST_PROTOCOL)
                 self.cursor.execute("UPDATE ProcessDatas SET data=:data WHERE process_id = :process_id",
@@ -52,8 +52,8 @@ class ProcessDatabase:
 
     def getData(self, process_id: str):
         with self.connection:
-            process_data_exists = self.cursor.execute("SELECT * FROM ProcessDatas WHERE process_id=:process_id",
-                                                      {'process_id': process_id}).fetchall()
+            process_data_exists = list(self.cursor.execute("SELECT * FROM ProcessDatas WHERE process_id=:process_id",
+                                                      {'process_id': process_id}).fetchall())
 
             if process_data_exists:
                 pickled_data = process_data_exists[0][self.schema['data']]
