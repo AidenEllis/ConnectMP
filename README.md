@@ -19,7 +19,7 @@
 🍤 `ConnectMP` is the easiest and `efficient` way to share data between `Processes`. It's superfast, can handle big datas, can
 create `multiple` data connection and really `simple` to get started. 🍰
 
-🥐 `ConnectMP` is purely created out of `Frustration` of not finding a good way to comminucate between Processes 🥨
+🥐 `ConnectMP` is purely created out of `Frustration` of not being able to find a good solution to comminucate between Processes 🥨
 
 ### 🥗 Installation :
 `via pip (recommended) :`
