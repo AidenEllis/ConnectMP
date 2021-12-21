@@ -33,7 +33,6 @@ class ProcessDatabase:
                     )""")
 
             except sqlite3.OperationalError:
-                print('DB Exists')
                 pass
 
     def createObj(self, process_id: str):
