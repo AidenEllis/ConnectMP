@@ -1,3 +1,3 @@
-from database import ProcessDatabase
+from .database import ProcessDatabase
 
 DATABASE = ProcessDatabase()
