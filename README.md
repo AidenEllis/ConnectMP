@@ -1,5 +1,5 @@
 <a href="https://github.com/AidenEllis/Cligo"><p align="center"></a>
-<img height=100 src="https://upstorage.pythonanywhere.com/api/storage/file/its_sakib/Public/Github/ConnectMP/ConnectMP_logo_1.png"/>
+<img height=100 src="https://upstorage.pythonanywhere.com/api/storage/file/its_sakib/Public/Github/ConnectMP/connectmp_logo_original.png"/>
 
 <p align="center">
   <strong>ConnectMP - Taking Multi-Process Data Sharing to the moon 🚀</strong>
@@ -19,12 +19,12 @@
 🍤 `ConnectMP` is the easiest and `efficient` way to share data between `Processes`. It's superfast, can handle big datas, can
 create `multiple` data connection and really `simple` to get started. 🍰
 
-🥐 `ConnectMP` is purely created out of `Frustration` of not finding a good way to comminucate between Processes 🥨
+🥐 `ConnectMP` is created out of pure `Frustration` of not being able to find a good solution to comminucate between Processes 🥨
 
 ### 🥗 Installation :
 `via pip (recommended) :`
 ```commandline
-pip install PainlessDB
+pip install connectmp
 ```
 
 ## 🧇 Quickstart : (Docs)
@@ -74,7 +74,9 @@ recieve the data from `p1.connection`. You can send and recieve data from and to
 And yeah to send data all you do is assign the data to `connection.data` and also to
 get data you have to do it with `connection.data`
 
-> ⚠ HOLD ON! You might also be looking for something like this down below!
+## 
+
+## ⚠ HOLD ON! You might also be looking for something like this down below!
 
 So, if you're wondering if we can create `Conenction` seperately without creting
 `Process` object? 🎉 YES! YES YOU CAN! with:
