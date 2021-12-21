@@ -1,5 +1,5 @@
 <a href="https://github.com/AidenEllis/Cligo"><p align="center"></a>
-<img height=100 src="https://upstorage.pythonanywhere.com/api/storage/file/its_sakib/Public/Github/ConnectMP/ConnectMP_logo_1.png"/>
+<img height=100 src="https://upstorage.pythonanywhere.com/api/storage/file/its_sakib/Public/Github/ConnectMP/connectmp_logo_original.png"/>
 
 <p align="center">
   <strong>ConnectMP - Taking Multi-Process Data Sharing to the moon 🚀</strong>
