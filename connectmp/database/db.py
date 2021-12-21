@@ -56,7 +56,7 @@ class ProcessDatabase:
                 self.cursor.execute("UPDATE ProcessDatas SET data=:data WHERE process_id = :process_id",
                                     {'process_id': process_id, 'data': sqlite3.Binary(pickled_data)})
 
-    def getData(self, process_id: str):
+    def getData(self, process_id: str, no_data_default=None):
         with self.connection:
             process_data_exists = list(self.cursor.execute("SELECT * FROM ProcessDatas WHERE process_id=:process_id",
                                                            {'process_id': process_id}).fetchall())
@@ -65,7 +65,7 @@ class ProcessDatabase:
                 pickled_data = process_data_exists[0][self.schema['data']]
                 if pickled_data:
                     return cpickle.loads(pickled_data)
-                return ''
+                return no_data_default
 
     def getAllData(self):
         with self.connection:
