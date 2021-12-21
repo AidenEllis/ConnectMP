@@ -76,7 +76,7 @@ get data you have to do it with `connection.data`
 
 ## 
 
-> ⚠ HOLD ON! You might also be looking for something like this down below!
+## ⚠ HOLD ON! You might also be looking for something like this down below!
 
 So, if you're wondering if we can create `Conenction` seperately without creting
 `Process` object? 🎉 YES! YES YOU CAN! with:
