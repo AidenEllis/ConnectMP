@@ -8,7 +8,11 @@ __all__ = ['ProcessDatabase']
 
 
 class ProcessDatabase:
-    db_path = os.path.join(Path(__file__).resolve().parent, 'database.sqlite3')
+    data_folder = os.path.join(Path(__file__).resolve().parent, 'data')
+    if not os.path.exists(data_folder):
+        os.mkdir(data_folder)
+
+    db_path = os.path.join(Path(__file__).resolve().parent, 'data', 'database.sqlite3')
 
     if os.path.exists(db_path):
         try:
