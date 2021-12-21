@@ -24,7 +24,7 @@ create `multiple` data connection and really `simple` to get started. 🍰
 ### 🥗 Installation :
 `via pip (recommended) :`
 ```commandline
-pip install PainlessDB
+pip install connectmp
 ```
 
 ## 🧇 Quickstart : (Docs)
