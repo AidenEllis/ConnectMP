@@ -74,6 +74,8 @@ recieve the data from `p1.connection`. You can send and recieve data from and to
 And yeah to send data all you do is assign the data to `connection.data` and also to
 get data you have to do it with `connection.data`
 
+## 
+
 > ⚠ HOLD ON! You might also be looking for something like this down below!
 
 So, if you're wondering if we can create `Conenction` seperately without creting
