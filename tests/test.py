@@ -1,6 +1,6 @@
 import unittest
-from tests.funcs import do_something, track_i
 from connectmp import Process, Connection
+from tests.funcs import do_something, track_i
 from tests.exceptions import DataMatchedException
 
 

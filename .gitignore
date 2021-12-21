@@ -2,4 +2,3 @@
 playground
 __pycache__/
 *.sqlite3
-test_1.py
