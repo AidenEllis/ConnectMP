@@ -1,5 +1,6 @@
 import os
 import sqlite3
+from . import config
 from pathlib import Path
 import _pickle as cpickle
 from pickle import HIGHEST_PROTOCOL
@@ -20,7 +21,7 @@ class ProcessDatabase:
         except PermissionError:
             pass
 
-    connection = sqlite3.connect(db_path)
+    connection = sqlite3.connect(db_path, check_same_thread=config.check_same_thread)
     cursor = connection.cursor()
 
     def __init__(self):
