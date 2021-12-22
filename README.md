@@ -16,7 +16,7 @@
 ---
 
 ## 🎫 Introduction :
-🍤 `ConnectMP` is an easy and `efficient` way to share data between `Processes`. It's superfast, can handle big datas, can
+🍤 `ConnectMP` is an easy way to share data between `Processes`. It's superfast, can handle big datas, can
 create `multiple` data connection and really `simple` to get started. 🍰
 
 🥐 `ConnectMP` is created out of pure `Frustration` of not being able to find a good solution to comminucate between Processes 🥨
