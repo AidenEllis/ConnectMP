@@ -16,7 +16,7 @@
 ---
 
 ## 🎫 Introduction :
-🍤 `ConnectMP` is an easy way to share data between `Processes`. It's superfast, can handle big datas, can
+🍤 `ConnectMP` is an simple, easy way to share data between `Processes` using DB. It's superfast, can handle big datas, can
 create `multiple` data connection and really `simple` to get started. 🍰
 
 🥐 `ConnectMP` is created out of pure `Frustration` of not being able to find a good solution to comminucate between Processes 🥨
@@ -28,60 +28,11 @@ pip install connectmp
 ```
 
 ## 🧇 Quickstart : (Docs)
-> ⚠ Please read till the end to find what you're looking for!
-
-### 🍤 connectmp.Process :
-```python
-from connectmp import Process
-```
-This `Process` class is same as `multiprocessing.Process`, it's just modified.
-So, just use `connectmp.Process` where you would use `multiprocessing.Process`
-```python
-import time
-from connectmp import Process
-
-
-def do_something(connection):
-    connection.data = "Sending Some Data."
-
-
-def track_data(connection):
-    time.sleep(1)
-    print(f"Track i: {connection.data}")
-
-
-if __name__ == '__main__':
-    p1 = Process(target=do_something, connection=True)
-    p2 = Process(target=track_data, args=(p1.connection,))
-
-    p1.start()
-    p2.start()
-```
-Just let me explain what's happening here. we have 2 functions, one is 
-`do_something` which just sends data and `track_data` which recieves the data
-and print's it. You can see in `p1` we are not pasing any argument but our
-function `do_something` requires a `connection` argument.
-
-When you enable `Process(connection=True)` Your target function will recieve
-a keyword-argument value named `connection` which's value will contain the `Connection`
-object. This `Connection` object is an individual connection. But You can of course share
-this connection with other process.
-
-in `p2` we shared the connection of our `p1` by `p1.connection` which 
-returns the connection object of `p1`. In `track_data` function we just
-recieve the data from `p1.connection`. You can send and recieve data from and to each other.
-
-And yeah to send data all you do is assign the data to `connection.data` and also to
-get data you have to do it with `connection.data`
-
-## 
-
-## ⚠ HOLD ON! You might also be looking for something like this down below!
-
-So, if you're wondering if we can create `Conenction` seperately without creting
-`Process` object? 🎉 YES! YES YOU CAN! with:
 
 ### 🥨 connectmp.Connection
+Let's see how to create a connection Object.
+
+First, import this:
 ```python
 from connectmp import Connection
 ```
@@ -91,11 +42,10 @@ from connectmp import Connection
 
 connection = Connection()
 ```
-that's it! 🎉 You can create multiple `Connection`!
-To use it just do it like how we did before, pass it as an argument and use it anywhere you want 🥂
-> ⚠ NOTE: Make sure `Process(connection=True)` is not enabled, or it will conflict
-with your function params. turn `Process(connection=True)` when you want to create another
-`Connection` and get it in the function as an argument('connection').
+that's it! 🎉 You can also create multiple `Connection` like this!
+pass it as an argument and use it anywhere you want 🥂
+
+Here's an example below:
 
 #### 🌮 Example:
 ```python
@@ -122,7 +72,9 @@ if __name__ == '__main__':
     p2.start()
 ```
 
-Now each Process can communicate with each other! That's all
-you need to know about `ConnectMP`. Hope this helped you 🎉
+Here we created a `Connection` object named `conn`, and we created  2 `Process`. Both of then share the same `Connection` object so they can communicate with each other. In our
+`do_something` function we send the data and in `track-data` function we get the data and print it out.
+
+That's all you needed to know about `ConnectMP`. Hope this helped you 🎉
 
 [🌟 Back to Top](#)
