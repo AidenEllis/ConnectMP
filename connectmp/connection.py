@@ -11,7 +11,7 @@ class Connection:
         if not self.process_id:
             # Class is being used seperately outside connectmp.
             self.process_id = str(uuid.uuid4())
-            self.database.createObj(self.process_id)
+        self.database.createObj(self.process_id)
 
     def __getattr__(self, item):
         if item == 'data':
